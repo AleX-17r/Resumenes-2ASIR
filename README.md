@@ -3,6 +3,6 @@
 
 [Página principal](https://alex-17r.github.io/Resumenes-1ASIR/)
 
-[Horario de 2 ASIR-I](https://alex-17r.github.io/Resumenes-1ASIR/Horario.html)
+[Horario de 2 ASIR-I](https://alex-17r.github.io/Resumenes-2ASIR/horario.html)
 
-[Próximos exámenes](https://alex-17r.github.io/Resumenes-1ASIR/examenes.html)
+[Próximos exámenes](https://alex-17r.github.io/Resumenes-2ASIR/examenes.html)
