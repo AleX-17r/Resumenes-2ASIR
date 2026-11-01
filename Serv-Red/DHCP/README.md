@@ -12,7 +12,7 @@ Puerto Cliente: 68
 
 #### DHCP Discover: 
 El cliente busca servidores disponibles
-Envía este mensaje por BroadCast, ya que no tiene IP, ni conoce la del servidor.
+Envía este mensaje por BroadCast, ya que ni tiene IP ni conoce la del servidor.
 
 #### DHCP Offer:
 Respuesta del servidor con IP disponible (dirección, GW, DNS, tiempo, ...)
@@ -54,3 +54,21 @@ Las asignaciones de dirección tienen 3 tiempos (independientemente de cuánto s
 - **T1**: 1/2 del total, el cliente tratará de renovar su configuración (Request), UC al mismo servidor, si responde, se reinicia. (confirma con ACK por UC)
 - **T2**: 7/8 del total, asume que el servidor no responde, envía REQUEST para que escuche **cualquier** servidor (BC). (confirma con ACK por BC)
 - **T3**: se acaba el tiempo de concesión, pierde la configuración.
+
+---
+### Relay Agent
+(Agente de retransmisión)
+Puesto que los BC no son enrutables, existen los relay agent, que lo reenvía a través de subredes.
+
+En primer lugar cuando encuentra un DISCOVER, lo encapsula en un nuevo paquete IP, modifica el **origen** (para que se lo devuelva directamente a él) y el destino (para que llegue al servidor).
+Especifica en giaddr en qué subred está para que el servidor DHCP lo sepa.
+
+Ahora que tenemos un paquete UC, podemos enviarlo a diferentes subredes. 
+
+Cuando lo envía al servidor DHCP, este comprueba el campo **giaddr** y busca una dirección en el pool para esa subred.
+
+Envía el OFFER (por UC) con la configuración al Relay Agent, en **giaddr** pone la IP del Relay Agent.
+
+Relay Agent extrae el mensaje DHCP y lo envía al cliente. 
+
+Hace el mismo proceso para los REQUEST y ACK
