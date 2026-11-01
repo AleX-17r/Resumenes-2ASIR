@@ -39,3 +39,18 @@ El cliente informa al servidor de que no va a continuar utilizando la dirección
 
 Aquí sí está configurado, con lo que UC.
 
+---
+### Renovación de IP
+Puesto que las concesiones de IP son dinámicas, cada cierto tiempo el cliente tendrá que renovarla (para que no se gasten todas en clientes que se fueron de la red).
+Existen 2 tiempos
+
+**Tiempo Máximo**: el máximo tiempo que puede dar una IP a un cliente.
+**Tiempo por Defecto**: Si el cliente no especifica el tiempo, le dará este.
+
+Cuando el cliente pida un tiempo entre estos 2, se lo dará, si pide mayor al máximo, le dará el máximo.
+
+Las asignaciones de dirección tienen 3 tiempos (independientemente de cuánto sea).
+
+- **T1**: 1/2 del total, el cliente tratará de renovar su configuración (Request), UC al mismo servidor, si responde, se reinicia. (confirma con ACK por UC)
+- **T2**: 7/8 del total, asume que el servidor no responde, envía REQUEST para que escuche **cualquier** servidor (BC). (confirma con ACK por BC)
+- **T3**: se acaba el tiempo de concesión, pierde la configuración.
