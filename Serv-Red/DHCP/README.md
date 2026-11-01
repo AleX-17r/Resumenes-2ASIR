@@ -26,6 +26,7 @@ Una vez está configurado, volverá a hacer este mensaje para renovar, UC al mis
 #### DHCPACK:
 El servidor confirma los parámetros de configuración al cliente.
 Los envía por BC, porque el cliente todavía no está configurado y para que se entere toda la red.
+Tras este mensaje, el cliente se configura
 
 #### DHCPNACK:
 El servidor rechaza la solicitud, en caso de que no se pueda asignar, envía este mensaje para que el cliente pida otra.
