@@ -4,6 +4,8 @@ Asigna direcciones de forma dinámica, y mantiene un control de las direcciones 
 
 Anteriormente existieron ARP y BOOTP (fue una mejora de este, y es compatible)
 
+Puerto Servidor: 67
+Puerto Cliente: 68
 
 ---
 ### Mensajes
